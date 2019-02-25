@@ -13,11 +13,18 @@ PROBLEM 1 (2pts)
 Use {}.format() to print 0.000321192 in scientific notation to two decimals
 '''
 
+print("Your number in scientific notation is {:.2e}".format(0.000321192))
+print()
+
 '''
 PROBLEM 2 (2pts)
 You get 8 out of 9 on a quiz.
 Print 8/9 using {}.format() so that it appears as 89%
 '''
+
+score = 8/9
+print("You got a(n) {:.0%}".format(score))
+print()
 
 
 '''
@@ -41,6 +48,15 @@ Make sure the print formatting works for any integer from zero to nine million.
 Do not use any concatenation in your code (no plus signs). 
 You should only have two double quotes in each print statement.
 '''
+
+score = 41237
+highscore = 1023407
+
+print("Score: " "{:12,}".format(score))
+print("High Score: " "{:6,}".format(highscore))
+
+
+print()
 
 
 '''
@@ -68,3 +84,9 @@ Use print formatting to EXACTLY match the following output:
 1/19 = 0.0526
 1/20 = 0.05
 '''
+
+for i in range(1, 21):
+    fraction = 1 / i
+    if i <= 21:
+        print("1/" + str(i), " = {:.3}".format(fraction))
+

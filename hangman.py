@@ -20,6 +20,20 @@ Use the sample run as an example.  Try to make it as close as possible to the ex
 
 # Feel free to use this list of ascii art for your game
 
+
+
+
+
+import random
+
+word_list = ["Tennis", "Soccer", "Basketball", "Squash", "Golf", "Track"]
+guess_number = 0
+secret_word = random.choice(word_list)
+letters_used = []
+guess = []
+
+done = False
+
 HANGMANPICS = ['''
   +---+
   |   |
@@ -72,10 +86,29 @@ HANGMANPICS = ['''
 =========''']
 
 
+print("Welcome to Hangman")
 
-
-
-
+while not done:
+    print(HANGMANPICS[guess_number])
+    for letter in letters_used:
+        print(letter, end=" ")
+    for letter in secret_word:
+        if letter in letters_used:
+            print("You already chose the letter.")
+        if letter not in letters_used:
+            print(letter, end=" ")
+    print()
+    guess = input("Chose a letter: ")
+    if guess in letters_used:
+        print("Already Used")
+    else:
+        letters_used.append(guess)
+    if letter in secret_word:
+        print(letter)
+    else:
+        guess_number += 1
+    if guess_number >= 6:
+        done = True
 
 
 
