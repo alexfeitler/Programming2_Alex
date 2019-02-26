@@ -54,8 +54,6 @@ highscore = 1023407
 
 print("Score: " "{:12,}".format(score))
 print("High Score: " "{:6,}".format(highscore))
-
-
 print()
 
 

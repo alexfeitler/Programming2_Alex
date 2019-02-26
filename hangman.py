@@ -26,12 +26,12 @@ Use the sample run as an example.  Try to make it as close as possible to the ex
 
 import random
 
-word_list = ["Tennis", "Soccer", "Basketball", "Squash", "Golf", "Track"]
-guess_number = 0
+word_list = ["tennis", "soccer", "basketball", "squash", "golf", "track"]
+wrong_number = 0
+right_number = 0
 secret_word = random.choice(word_list)
 letters_used = []
 guess = []
-
 done = False
 
 HANGMANPICS = ['''
@@ -89,30 +89,36 @@ HANGMANPICS = ['''
 print("Welcome to Hangman")
 
 while not done:
-    print(HANGMANPICS[guess_number])
+    print(HANGMANPICS[wrong_number])
     for letter in letters_used:
         print(letter, end=" ")
+    print()
     for letter in secret_word:
         if letter in letters_used:
-            print("You already chose the letter.")
-        if letter not in letters_used:
             print(letter, end=" ")
+        else:
+            print("_", end=" ")
     print()
     guess = input("Chose a letter: ")
-    if guess in letters_used:
-        print("Already Used")
-    else:
-        letters_used.append(guess)
     if letter in secret_word:
+        right_number += 1
         print(letter)
-    else:
-        guess_number += 1
-    if guess_number >= 6:
+        if guess in letters_used:
+            print("Already Used")
+        else:
+            letters_used.append(guess)
+    if guess not in secret_word and letters_used:
+        wrong_number += 1
+        print(HANGMANPICS[wrong_number])
+    if wrong_number >= 6:
+        print("You are out of turns!")
         done = True
+    if right_number == (len(secret_word)):
+        print("Game Over. You won!")
 
 
-
-
+# I need to say, "if letter in secret word then don't add 1 to guess number.
+# This will then not add to picture if guess is correct and it will not count a correct guess as a turn.
 
 
 

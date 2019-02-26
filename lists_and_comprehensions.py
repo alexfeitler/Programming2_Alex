@@ -89,3 +89,28 @@ print()
 # The numbers must be an exact match in the exact position.
 # Each ticket is $1.  If you win, you get $5000.  Simulate spending $10,000 on Pick 4 tickets, and see your return.
 
+import random
+
+list = [[random.randrange(10), random.randrange(10), random.randrange(10), random.randrange(10)] for x in range(1000)]
+print(list)
+main_list = [random.randrange(10), random.randrange(10), random.randrange(10), random.randrange(10)]
+wins = 0
+for i in range(len(list)):
+    if main_list[0] == list[i][0] and main_list[1] == list[i][1] and main_list[2] == list[i][2] and main_list[3] == list[i][3]:
+        wins += 1
+print(main_list)
+print("You won", wins, "times.")
+list = [[random.randrange(10), random.randrange(10), random.randrange(10), random.randrange(10)] for x in range(10000)]
+money = 0
+for i in range(len(list)):
+    money -= 1
+    if main_list[0] == list[i][0] and main_list[1] == list[i][1] and main_list[2] == list[i][2] and main_list[3] == list[i][3]:
+        wins += 1
+        money += 5000
+
+if money > 0:
+    print("You made", money, "dollars.")
+elif money == 0:
+    print("You broke even.")
+else:
+    print("You have", money, "dollars. ):")
