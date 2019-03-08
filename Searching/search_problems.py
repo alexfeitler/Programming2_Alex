@@ -8,25 +8,28 @@ from class and from Ch15 of the textbook website
 # than one longest word, print them all.
 
 import re
-dictionary_list = []
 index = 0
 longest_length = 0
+longest_word = ""
 
 def split_line(line):
     return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
 
-file = open('dictionary.txt', 'r')
 with open('dictionary.txt') as word:
-    list = [x.strip() for x in word]
 
-for i in range(len(list)):
-    if len(list[i]) > longest_length: # this says that if the word being looked at is bigger than all previous ones than...
-        longest_length = len(list[i])
-        longest_word = list[i] # this is where the pseudo code got confusing
-        index = i # I can't figure out how to print the letter represented by the number
-print("Longest word is", longest_length)
 
-file.close()
+    dictionary_list = [x.strip() for x in word]
+
+
+for i in range(len(dictionary_list)):
+    if len(dictionary_list[i]) > longest_length: # this says that if the word being looked at is bigger than all previous ones than...
+        longest_length = len(dictionary_list[i])
+        longest_word = dictionary_list[i]
+        index = i
+
+print("Longest word is", longest_word)
+print("Longest word length is", longest_length)
+
 
 
 #2.  (8pts)  Write code which finds
