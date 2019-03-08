@@ -22,7 +22,7 @@ with open('dictionary.txt') as word:
 for i in range(len(list)):
     if len(list[i]) > longest_length: # this says that if the word being looked at is bigger than all previous ones than...
         longest_length = len(list[i])
-        longest_word = list[i] # this is where the pseudo code got confusing
+        longest_word = list[i]
         index = i # I can't figure out how to print the letter represented by the number
 print("Longest word is", longest_length)
 

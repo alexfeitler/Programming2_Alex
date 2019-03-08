@@ -97,3 +97,24 @@ if found:
 
 else:
     print(key, "was not found.")
+
+import re
+text = 'Hello my names is Alexa'
+# This function takes in a line of text and returns
+# a list of words in the line.
+def split_line(line):
+    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?',line)
+
+line = split_line(text)
+print(line)
+
+line = split_line(text)
+print(line)
+
+file = open("data/super_villains.txt")
+
+for line in file:
+    line = line.strip()
+    words = split_line(line)
+    for word in words:
+        print(word)
