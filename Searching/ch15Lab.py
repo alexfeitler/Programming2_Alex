@@ -13,7 +13,7 @@ for line in file:
 file.close()
 
 
-print ("Linear Search") # Why does it say every word is spelled wrong?
+print ("\nLinear Search\n") # Why does it say every word is spelled wrong?
 
 file = open("AliceInWonderLand200.txt")
 line_number = 0
@@ -36,7 +36,8 @@ upper_pos = len(dictionary)
 found_pos = False
 key = "Hello"
 
-print("Binary Search")
+
+print("\nBinary Search\n")
 
 for line in file:
     words = []
