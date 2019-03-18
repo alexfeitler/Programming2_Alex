@@ -78,5 +78,33 @@ def rect_recursive(width, height, depth, line_width=1):
 
 # rect_recursive(200, 100)
 
-rect_recursive(40, 23, 20)
+# rect_recursive(40, 23, 20)
+
+def bracket_recursion(x, y, size, depth):
+    my_turtle.penup()
+    my_turtle.goto(x, y)
+    my_turtle.pendown()
+    my_turtle.setheading(90)
+    my_turtle.forward(size)
+    my_turtle.right(90)
+    my_turtle.forward(100)  # make this constant
+    pos1 = my_turtle.pos()
+
+    my_turtle.penup()
+    my_turtle.goto(x, y)
+    my_turtle.pendown()
+    my_turtle.setheading(-90)
+    my_turtle.forward(size)
+    my_turtle.left(90)
+    my_turtle.forward(100)
+    pos2 = my_turtle.pos()
+
+    if depth > 0:
+        x, y = pos1
+        bracket_recursion(x, y, size * 0.5, depth - 1)
+        x, y = pos2
+        bracket_recursion(x, y, size * 0.5, depth - 1)
+
+bracket_recursion(-250, 0, 150, 5)
+
 my_screen.exitonclick()
