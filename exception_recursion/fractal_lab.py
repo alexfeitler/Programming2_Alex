@@ -3,6 +3,8 @@
 
 #1)  Using the turtle library, create the H fractal pattern according to the file shown in the data folder. (10pts)  
 
+
+
 #2)  Using the turtle library, create any of the other recursive patterns in the data folder. 
 #  Challenge yourself to match your pattern as closely as you can to the image.  (10pts)
 #  Note:  The Koch snowflake shows step by step building of the fractal.  
