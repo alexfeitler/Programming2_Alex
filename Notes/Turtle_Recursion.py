@@ -76,9 +76,9 @@ def rect_recursive(width, height, depth, line_width=1):
         my_turtle.right(90)
     rect_recursive(width * 1.25, height * 1.25, depth - 1, line_width * 1.25)
 
-# rect_recursive(200, 100)
 
-# rect_recursive(40, 23, 20)
+
+rect_recursive(40, 23, 20)
 
 def bracket_recursion(x, y, size, depth):
     my_turtle.penup()
