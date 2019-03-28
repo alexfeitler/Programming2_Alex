@@ -19,7 +19,7 @@ plt.ylabel('y label (units')
 plt.title('Example Plot', color='blue', fontsize=20)
 plt.axis([10, 20, 100, 500])  # xmin, xmax, ymin, ymax
 
-#plt.show()
+# plt.show()
 
 import matplotlib.pyplot as plt
 import csv
@@ -28,7 +28,7 @@ with open('data/Libraries_-_2018_Visitors_by_Location.csv') as f:
     reader = csv.reader(f)  # create a reader object from csv
     data = list(reader)  # cast it as a a list
 
-#print(data)
+# print(data)
 
 month_numbers = [x for x in range(12)]  # month numbers on x
 
@@ -36,11 +36,11 @@ library_names = [x[0] for x in data[1:]]  # month names on x
 print(library_names)
 
 header = data.pop(0)
-#print(header)
+# print(header)
 
 
 month_data = [x[1:-1] for x in data]  # Jan to Dec data for all libraries
-#print(month_data[0])
+# print(month_data[0])
 
 plt.figure(3, tight_layout=True, figsize=(12, 8))  # tight layout allows data to fit axes
 
