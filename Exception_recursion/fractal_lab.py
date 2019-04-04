@@ -119,13 +119,13 @@ def snowflake_fractal(size=200, depth=3, x=0, y=0):  # This takes forever to dra
         x, y = mypos6
         snowflake_fractal(size * .3, depth-1, x, y)
 
-#snowflake_fractal()
-my_screen.clear()
+snowflake_fractal()
+
 
 #3)  Create your own work of recursive art with a repeating pattern of your making (or choose another one from the files).  
 #  It must be a repeated pattern using recursion (not just loops). Snowflakes, trees, and spirals are a common choice.  
 #  Play around and have fun with it.  (5pt) 
-
+'''
 import turtle
 
 my_turtle = turtle.Turtle()
@@ -148,6 +148,6 @@ for i in range(50):
 #  Run your turtles at max speed.
 #  Have fun!
 
-
+'''
 
 my_screen.exitonclick()
