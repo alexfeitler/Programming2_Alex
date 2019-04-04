@@ -20,7 +20,7 @@ Make a scatterplot which does the following:
 Challenge (for fun if you have time... not required):
 - Make schools in top 10 percent of GHG Intensity show in green.
 - Make schools in bottom 10 percent GHG Intesity show in red.
-- Add colleges and universities (use a different marker type)
+- Add colleges and universities (use a different marker type
 '''
 
 import matplotlib.pyplot as plt
