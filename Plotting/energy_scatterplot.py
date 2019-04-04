@@ -38,6 +38,10 @@ print(header)
 k_schools = [x[6] for x in data]
 print(k_schools)
 
+'''
+k_12 = [x for x in data if x[6] == "K-12 School"]
+k12_sorted = sorted(k_12, keywords=lambda x: int(x[21]))
+'''
 school = []
 for x in range(len(k_schools)):
     if k_schools[x] == "K-12 School":
@@ -85,26 +89,21 @@ plt.ylabel("Gas Emitted", color="red")
 
 # This is for the bottom and top 3 ghg emitters
 
-bottom_top_list = sorted(names, key=lambda x: [20])
-print(bottom_top_list)
 
-# WHy is string index out of range
 # Bottom 3
-'''
-plt.annotate(bottom_top_list[0][2], xy=(bottom_top_list[0][7], bottom_top_list[0][20]), color='red')
-plt.annotate(bottom_top_list[1][2], xy=(bottom_top_list[1][7], bottom_top_list[1][20]), color='red')
-plt.annotate((bottom_top_list[2][2]), xy=(bottom_top_list[2][7], bottom_top_list[2][20]), color='red')
+
 
 # Top 3
-plt.annotate(bottom_top_list[-1][2], xy=(bottom_top_list[-1][7], bottom_top_list[-1][20]), color='lightgreen')
-plt.annotate(bottom_top_list[-2][2], xy=(bottom_top_list[-2][7], bottom_top_list[-2][20]), color='lightgreen')
-plt.annotate(bottom_top_list[-3][2], xy=(bottom_top_list[-3][7], bottom_top_list[-3][20]), color='lightgreen')
-'''
+
+
+#for i in range(3):
+
+
 # Best fit line
 m, b = np.polyfit(square_feet, ghg_emissions, 1)
 
-fit_x = [50000, 0]
-fit_y = [b, 50000 * m]
+fit_x = [0, 700000]
+fit_y = [b, 700000 * m + b]
 
 plt.annotate(names[fwp_index], xy=(square_feet[fwp_index], ghg_emissions[fwp_index]))
 
