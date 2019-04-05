@@ -17,10 +17,10 @@ import requests
 
 url = "https://weather.com/weather/tenday/l/USIL0225:1:US"
 page = requests.get(url)
-print(page)
+#print(page)
 
 bs = BeautifulSoup(page.text, "html.parser")
-print(bs.prettify())
+#print(bs.prettify())
 print()
 day = bs.findAll(class_="date-time")
 date = bs.findAll(class_="day-detail clearfix")
