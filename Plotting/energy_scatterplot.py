@@ -87,17 +87,6 @@ plt.title("Gas Emissions -vs- Building Square Footage", color="red")
 plt.xlabel("Square Feet", color="red")
 plt.ylabel("Gas Emitted", color="red")
 
-# This is for the bottom and top 3 ghg emitters
-
-
-# Bottom 3
-
-
-# Top 3
-
-
-#for i in range(3):
-
 
 # Best fit line
 m, b = np.polyfit(square_feet, ghg_emissions, 1)

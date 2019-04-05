@@ -29,7 +29,7 @@ def force():
         except ValueError:
             print("You entered an invalid number")
         except ZeroDivisionError:
-            print("You can't divide by zero because it will make a blackhole.")
+            print("You can't divide by zero because it will make a black hole.")
 
 
 
