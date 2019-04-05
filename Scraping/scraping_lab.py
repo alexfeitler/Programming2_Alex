@@ -12,5 +12,24 @@
 
 # Note: Although it is possible to pull a description of the weather which includes much of this data, that is not the intent.
 # However, if you can do it and add the additional info, that works for me.
+from bs4 import BeautifulSoup
+import requests
 
 url = "https://weather.com/weather/tenday/l/USIL0225:1:US"
+page = requests.get(url)
+print(page)
+
+bs = BeautifulSoup(page.text, "html.parser")
+print(bs.prettify())
+print()
+day = bs.findAll(class_="date-time")
+date = bs.findAll(class_="day-detail clearfix")
+description = bs.findAll(class_="description")
+temperature = bs.findAll(class_="temp")
+wind = bs.findAll(class_="wind")
+humidity = bs.findAll(class_="humidity")
+
+
+for i in range(10):
+    print(day[i].text, date[i].text,description[i].text, temperature[i].text, wind[i].text, humidity[i].text, sep=", ")
+
