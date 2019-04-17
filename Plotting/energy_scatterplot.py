@@ -30,7 +30,7 @@ import numpy as np
 with open("Chicago_Energy_Benchmarking.csv") as f:
     reader = csv.reader(f)
     data = list(reader)
-print(data)
+print("Data: ", data)
 
 header = data.pop(0)  # prints headers
 print(header)

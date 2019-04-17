@@ -31,5 +31,5 @@ humidity = bs.findAll(class_="humidity")
 
 
 for i in range(10):
-    print(day[i].text, date[i].text,description[i].text, temperature[i].text, wind[i].text, humidity[i].text, sep=", ")
+    print(day[i].text, date[i].text, "will be", description[i].text, "with a high/ low temperature of", temperature[i].text, "degrees. There will be a wind speed of", wind[i].text, "and a humidity of", humidity[i].text, sep=", ")
 
