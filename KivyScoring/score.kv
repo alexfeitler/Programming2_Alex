@@ -1,0 +1,57 @@
+<CustButton@Button>
+    # Cust button is a child of the Button class
+
+<CustLabel@Label>:
+    font_size: 90
+    color: [1, 1, 1, 1]
+
+<CustBoxLayout@BoxLayout>:
+    orientation: "horizontal"
+
+
+
+
+
+<ScoreLayout>:
+    orientation: "vertical"
+    home: home
+    away: away
+    id: scorer
+    CustBoxLayout:
+        CustLabel:
+            text: "Scorekeeper"
+        CustButton:
+            text: "Reset"
+            on_press: scorer.reset()
+
+    CustBoxLayout:
+        CustLabel:
+            text: "HOME"
+        CustLabel:
+            text: "Away"
+    CustBoxLayout:
+        CustLabel:
+            id: home
+            text: "0"
+        CustLabel:
+            id: away
+            text: "0"
+    CustBoxLayout:
+        CustButton:
+            on_press: scorer.change_score(home, -1)
+            font_size: 90
+            text: "-"
+        CustButton:
+            on_press: scorer.change_score(home, 1)
+            font_size: 90
+            text: "+"
+        CustButton:
+            on_press: scorer.change_score(away, -1)
+            font_size: 90
+            text: "-"
+        CustButton:
+            on_press: scorer.change_score(away, 1)
+            font_size: 90
+            text: "+"
+
+
