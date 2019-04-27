@@ -22,9 +22,8 @@
 # -layout is formatted in a meaningful way to make application user friendly and attractive (3pts)
 
 
-<CustBoxLayout@BoxLayout>:
-    orientation: "horizontal"
-    spacing: 0.5
+<CustomBoxLayout@BoxLayout>:
+    size_hint_y: 1
 
 <CustomLabel@Label>
     canvas:
@@ -34,52 +33,55 @@
             width: 1
             rectangle: self.x, self.y, self.width, self.height
 
-<CustButton@Button>:
+<CustomButton@Button>:
+    font_size: 30
     background_normal: ""
-    background_color: (1, 1, 1, 1)
+    background_color: [0, 1, 0, 1]
     color: 0, 0, 0, 1
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 1
         Line:
             width: 1
             rectangle: self.x, self.y, self.width, self.height
 
 
 <GravityLayout>:
-    first: first
-    second: second
-    radius: radius
+    first: _first
+    second: _second
+    radius: _radius
     display: display
     orientation : "vertical"
     canvas:
         Color:
             rgba: 1, 1, 1, 1
     CustomLabel:
-        text: "Calculator of Gravity"
+        text: "Calculate Gravity:"
     CustomBoxLayout:
         CustomLabel:
-            text: "Mass of Object 1: "
+            text: "Mass of Object 1"
         CustomLabel:
-            text: "Mass of Object 2: "
+            text: "Mass of Object 2"
         CustomLabel:
-            text: "Distance between objects: "
+            text: "Distance between objects"
     CustomBoxLayout:
         TextInput:
-            id: first
+            id: _first
             input_filter: "float"
-            size_hint_x: 2
+            size_hint_x: 4
         TextInput:
-            id: second
+            id: _second
             input_filter: "float"
-            size_hint_x: 2
+            size_hint_x: 4
         TextInput:
-            id: radius
+            id: _radius
             input_filter: "float"
-            size_hint_x: 2
+            size_hint_x: 4
     CustomButton:
         text: "Calculate"
-        on_press: root.calculate(first.text, second.text, radius.text)
+        on_press: root.calculate(_first.text, _second.text, _radius.text)
     CustomLabel:
         id: display
-        font_size: 40
+        font_size: 50
         text: ""
-
 
