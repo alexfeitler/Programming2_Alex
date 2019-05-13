@@ -2,9 +2,10 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
 from kivy.properties import ObjectProperty
+from kivy.uix.popup import Popup
 
 Window.clearcolor = (1, 1, 1, 1)
-Window.size = (400, 600)
+Window.size = (675, 600)
 
 class DemoApp(App):
     def build(self):
@@ -23,6 +24,14 @@ class DemoLayout(BoxLayout):
 
     def slider_change(self, slider, value):
         self.slider_text.color = (value, value, value, 1)
+
+    def check_box(self, value):
+        print("I am not a robot box checked", value)
+
+    def spinner_clicked(self,value):
+        print(value)
+
+
 
 if __name__ == "__main__":
     demo = DemoApp()
