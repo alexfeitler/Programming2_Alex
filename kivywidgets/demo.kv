@@ -67,32 +67,6 @@
             group: "favorite"
     BoxLayout:
         orientation: "horizontal"
-        def popup(self):
-            pop = Popup()
-            pop.open()
-    BoxLayout:
-        orientation: "horizontal"
-
-        TabbedPanel:
-            do_default_tab: False
-            background_image:
-
-            TabbedPanelItem:
-                text: "1st tab"
-                Label:
-                    text: "Content of my first Tab"
-                    color: 1, 0, 0, 1
-                    background_normal:
-            TabbedPanelItem:
-                text: "2nd tab"
-                Label:
-                    text: "Content of my second Tab"
-            TabbedPanelItem:
-                text: "3rd tab"
-                Label:
-                    text: "Content of my third Tab"
-    BoxLayout:
-        orientation: "horizontal"
 
         CustLabel:
             text: spinner.text

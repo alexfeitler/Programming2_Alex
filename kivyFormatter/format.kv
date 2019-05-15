@@ -1,105 +1,93 @@
-<BoxLayout>
-<CustLabel@Label>
-    color: 0, 0, 0, 1
-
-<CustPopup@Popup>:
-    size_hint_x: 1
-    size_hint_y: 1
-    auto_dismiss: False
-    Button:
-        text: "Close"
-        on_press: root.dismiss()
-
-<DemoLayout>:
+<FormatLayout>:
     orientation: "vertical"
-    id: demo
-    switch_text: switch_text
-    slider: slider
-    slider_text: slider_text
-    BoxLayout:
-        orientation: "horizontal"
-        CustLabel:
-            id: switch_text
-            text: str(switch.active)
-        Switch:
-            active: True
-            id: switch
-            on_active: root.switch_on(self, self.active)
+    label: label
+    spinner: spinner
+
+    Label:
+        id: label
+        text: "Chose Text Below"
+        font_size: 100
 
 
     BoxLayout:
-        orientation: "horizontal"
-        CustLabel:
-            id: slider_text
-            text: "{:.2f}".format(slider.value)
+        Label:
+            text: "Choose a font:"
+            font_size: 90
+        Spinner:
+            id: spinner
+            text: "Font Type"
+            font_name: "freesansbold.ttf"
+            font_size: 50
+            values: ["Free Sans Bold", "Test Sans"]
+            on_text: root.font_change(self.text)
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            text: "Favorite Food:"
+            font_size: 60
+            size_hint_x: 4
+        Label:
+            font_size: 50
+            text: 'Pizza'
+        CheckBox:
+            group: 'text'
+            on_active: root.text_change('Pizza')
+        Label:
+            font_size: 50
+            text: 'Pasta'
+        CheckBox:
+            group: 'text'
+            on_active: root.text_change('Pasta')
+        Label:
+            font_size: 50
+            text: 'Salad'
+        CheckBox:
+            group: 'text'
+            on_active: root.text_change('Salad')
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+
+        Label:
+            text: "Green:"
+            font_size: 50
+            color: 0, 1, 0, 1
         Slider:
-            id: slider
             min: 0
             max: 1
             value: 0
-            step: 0.01
-            slider_change: demo.slider_change(self, self.value)
-    BoxLayout:
-        orientation: "horizontal"
-        CustLabel:
-            id: check_text
-            text: "I am not a robot"
-        CheckBox:
-            on_active: root.check_box(self.active)
-    BoxLayout:
-        orientation: "horizontal"
-        CustLabel:
-            id: radio_text
-            size_hint_x: 3
-            text: "Choose your favorite:"
-        CustLabel:
-            text: "Ice Cream"
-        CheckBox:
-            group: "favorite"
+            step: .05
+            id: green
+            on_touch_move: root.change_window(red.value, self.value, blue.value)
+        Label:
+            text: "Red:"
+            font_size: 50
+            color: 1, 0, 0, 1
+        Slider:
+            min: 0
+            max: 1
+            value: 0
+            step: .05
+            id: red
+            on_touch_move: root.change_window(self.value, green.value, blue.value)
+        Label:
+            text: "Blue:"
+            font_size: 50
+            color: 0, 0, 1, 1
+        Slider:
+            min: 0
+            max: 1
+            value: 0
+            step: .05
+            id: blue
+            on_touch_move: root.change_window(red.value, green.value, self.value)
 
-        CustLabel:
-            text: "Cake"
-        CheckBox:
-            group: "favorite"
-        CustLabel:
-            text: "Pie"
-        CheckBox:
-            size_hint_x: 0.1
-            group: "favorite"
     BoxLayout:
-        orientation: "horizontal"
-        def popup(self):
-            pop = Popup()
-            pop.open()
-    BoxLayout:
-        orientation: "horizontal"
-
-        TabbedPanel:
-            do_default_tab: False
-            background_image:
-
-            TabbedPanelItem:
-                text: "1st tab"
-                Label:
-                    text: "Content of my first Tab"
-                    color: 1, 0, 0, 1
-                    background_normal:
-            TabbedPanelItem:
-                text: "2nd tab"
-                Label:
-                    text: "Content of my second Tab"
-            TabbedPanelItem:
-                text: "3rd tab"
-                Label:
-                    text: "Content of my third Tab"
-    BoxLayout:
-        orientation: "horizontal"
-
-        CustLabel:
-            text: spinner.text
-
-        Spinner:
-            id: spinner
-            text: "First"
-            values: ["First", "Second", "Third"]
-            on_text: root.spinner_clicked(self.text)
+        Label:
+            text: "Text Color(Black/White):"
+            font_size: 60
+        Switch:
+            active: False
+            on_active: root.text_on(self.active)
