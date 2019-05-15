@@ -3,6 +3,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.core.window import Window
 
 Window.clearcolor = (1, 0, 1, 0)
+Window.size = (1000, 600)
 
 class FormatApp(App):
     def build(self):
@@ -26,7 +27,7 @@ class FormatLayout(BoxLayout):
             self.label.font_name = "test_sans.ttf"
             self.spinner.font_name = "test_sans.ttf"
 
-    def change_window(self, r=1, g=0, b=1):
+    def change_window(self, r, g, b):
         Window.clearcolor = (r, g, b, 1)
 
 if __name__ == "__main__":

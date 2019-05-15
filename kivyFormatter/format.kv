@@ -1,3 +1,4 @@
+
 <FormatLayout>:
     orientation: "vertical"
     label: label
@@ -7,19 +8,6 @@
         id: label
         text: "Chose Text Below"
         font_size: 100
-
-
-    BoxLayout:
-        Label:
-            text: "Choose a font:"
-            font_size: 90
-        Spinner:
-            id: spinner
-            text: "Font Type"
-            font_name: "freesansbold.ttf"
-            font_size: 50
-            values: ["Free Sans Bold", "Test Sans"]
-            on_text: root.font_change(self.text)
 
     BoxLayout:
         orientation: 'horizontal'
@@ -46,10 +34,22 @@
             group: 'text'
             on_active: root.text_change('Salad')
 
+    BoxLayout:
+        Label:
+            text: "Choose a font:"
+            font_size: 90
+        Spinner:
+            id: spinner
+            text: "Font Type"
+            font_name: "freesansbold.ttf"
+            font_size: 50
+            values: ["Free Sans Bold", "Test Sans"]
+            on_text: root.font_change(self.text)
+
+
 
     BoxLayout:
         orientation: 'horizontal'
-
         Label:
             text: "Green:"
             font_size: 50
